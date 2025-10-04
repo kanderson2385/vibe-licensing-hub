@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Music, Play } from "lucide-react";
-import heroBg from "@/assets/hero-bg.jpg";
+import { Play, ChevronDown } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const Hero = () => {
@@ -9,61 +8,78 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image with Overlay */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${heroBg})` }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/70 to-background" />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
+      {/* Geometric Background Pattern */}
+      <div className="absolute inset-0 opacity-[0.03]">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `repeating-linear-gradient(45deg, black 0, black 2px, transparent 0, transparent 50%), repeating-linear-gradient(-45deg, black 0, black 2px, transparent 0, transparent 50%)`,
+          backgroundSize: '40px 40px'
+        }} />
       </div>
 
+      {/* Angular Accent Lines */}
+      <div className="absolute top-0 left-0 w-full h-2 bg-foreground transform -skew-y-1" />
+      <div className="absolute bottom-0 right-0 w-full h-2 bg-foreground transform skew-y-1" />
+
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 text-center">
-        <div className="inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full border border-primary/30 bg-card/50 backdrop-blur-sm">
-          <Music className="w-4 h-4 text-primary" />
-          <span className="text-sm font-medium text-primary">Premium Sync Licensing</span>
-        </div>
+      <div className="relative z-10 container mx-auto px-4 py-20">
+        <div className="max-w-5xl mx-auto text-center">
+          {/* Logo - Hero Element */}
+          <div className="mb-12 flex justify-center">
+            <div className="relative">
+              <div className="absolute inset-0 bg-foreground/5 blur-3xl" />
+              <img 
+                src={logo} 
+                alt="K3lvin Kaos - The Melodik One" 
+                className="relative h-48 md:h-64 lg:h-80 w-auto mx-auto"
+              />
+            </div>
+          </div>
 
-        <div className="mb-8 flex justify-center">
-          <img 
-            src={logo} 
-            alt="K3lvin Kaos - The Melodik One" 
-            className="h-32 md:h-48 w-auto drop-shadow-[0_0_40px_rgba(255,204,0,0.3)]"
-          />
-        </div>
+          {/* Tagline */}
+          <div className="mb-8 inline-block relative">
+            <div className="absolute -inset-4 bg-foreground/5 clip-corner" />
+            <h1 className="relative text-2xl md:text-3xl font-bold tracking-[0.3em] uppercase px-8 py-3">
+              Sync Licensing Specialist
+            </h1>
+          </div>
 
-        <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed">
-          High-quality music production for film, TV, commercials, and media. 
-          Specializing in Hip Hop, R&B, and Cinematic compositions.
-        </p>
+          {/* Description */}
+          <p className="text-lg md:text-xl text-foreground/70 mb-12 max-w-2xl mx-auto leading-relaxed font-light">
+            Premium music production for film, television, advertising, and digital media.
+            <br />
+            <span className="font-medium">Hip Hop • R&B • Cinematic • Commercial</span>
+          </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button 
-            size="lg" 
-            className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-6 text-lg shadow-[var(--glow-gold)] hover:shadow-[var(--glow-gold)] transition-all"
-            onClick={() => scrollToSection('demos')}
-          >
-            <Play className="mr-2 h-5 w-5" />
-            Listen to Demos
-          </Button>
-          <Button 
-            size="lg" 
-            variant="outline"
-            className="border-primary/50 text-foreground hover:bg-primary/10 font-semibold px-8 py-6 text-lg backdrop-blur-sm"
-            onClick={() => scrollToSection('contact')}
-          >
-            Start a Project
-          </Button>
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button 
+              size="lg" 
+              className="bg-foreground text-background hover:bg-foreground/90 font-bold px-10 py-7 text-base tracking-wide clip-corner group shadow-[var(--shadow-sharp)] hover:shadow-[var(--shadow-lift)] transition-all"
+              onClick={() => scrollToSection('demos')}
+            >
+              <Play className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
+              LISTEN TO DEMOS
+            </Button>
+            <Button 
+              size="lg" 
+              variant="outline"
+              className="border-2 border-foreground text-foreground hover:bg-foreground hover:text-background font-bold px-10 py-7 text-base tracking-wide clip-corner shadow-[var(--shadow-sharp)] hover:shadow-[var(--shadow-lift)] transition-all"
+              onClick={() => scrollToSection('contact')}
+            >
+              START A PROJECT
+            </Button>
+          </div>
         </div>
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-primary/50 rounded-full flex items-start justify-center p-2">
-          <div className="w-1.5 h-3 bg-primary rounded-full animate-pulse" />
-        </div>
-      </div>
+      <button 
+        onClick={() => scrollToSection('demos')}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer group"
+      >
+        <ChevronDown className="w-8 h-8 text-foreground/30 group-hover:text-foreground transition-colors" />
+      </button>
     </section>
   );
 };

@@ -21,9 +21,10 @@ const Navigation = () => {
   };
 
   const navItems = [
-    { label: "Home", id: "home" },
-    { label: "Demos", id: "demos" },
-    { label: "Contact", id: "contact" },
+    { label: "HOME", id: "home" },
+    { label: "DEMOS", id: "demos" },
+    { label: "SERVICES", id: "services" },
+    { label: "CONTACT", id: "contact" },
   ];
 
   return (
@@ -31,7 +32,7 @@ const Navigation = () => {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-background/95 backdrop-blur-md border-b border-primary/20 shadow-lg"
+            ? "bg-background/95 backdrop-blur-sm border-b-2 border-foreground shadow-[var(--shadow-sharp)]"
             : "bg-transparent"
         }`}
       >
@@ -40,11 +41,11 @@ const Navigation = () => {
             {/* Logo */}
             <button
               onClick={() => scrollToSection("home")}
-              className="hover:opacity-80 transition-opacity"
+              className="hover:opacity-70 transition-opacity"
             >
               <img 
                 src={logo} 
-                alt="K3lvin Kaos - The Melodik One" 
+                alt="K3lvin Kaos" 
                 className="h-12 w-auto"
               />
             </button>
@@ -55,22 +56,16 @@ const Navigation = () => {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="text-foreground hover:text-primary transition-colors font-medium"
+                  className="text-sm font-bold text-foreground hover:text-foreground/60 transition-colors tracking-wider"
                 >
                   {item.label}
                 </button>
               ))}
-              <Button
-                onClick={() => scrollToSection("contact")}
-                className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
-              >
-                Get in Touch
-              </Button>
             </div>
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden text-foreground hover:text-primary transition-colors"
+              className="md:hidden text-foreground hover:text-foreground/60 transition-colors"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -81,24 +76,17 @@ const Navigation = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-40 bg-background/98 backdrop-blur-lg md:hidden">
+        <div className="fixed inset-0 z-40 bg-background md:hidden">
           <div className="flex flex-col items-center justify-center h-full gap-8">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="text-2xl font-semibold text-foreground hover:text-primary transition-colors"
+                className="text-2xl font-bold text-foreground hover:text-foreground/60 transition-colors tracking-wider"
               >
                 {item.label}
               </button>
             ))}
-            <Button
-              size="lg"
-              onClick={() => scrollToSection("contact")}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
-            >
-              Get in Touch
-            </Button>
           </div>
         </div>
       )}

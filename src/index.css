@@ -8,41 +8,40 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 240 10% 8%;
-    --foreground: 60 9% 98%;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
 
-    --card: 240 8% 12%;
-    --card-foreground: 60 9% 98%;
+    --card: 0 0% 98%;
+    --card-foreground: 0 0% 0%;
 
-    --popover: 240 8% 12%;
-    --popover-foreground: 60 9% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
 
-    --primary: 45 100% 51%;
-    --primary-foreground: 240 10% 8%;
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 262 83% 58%;
-    --secondary-foreground: 60 9% 98%;
+    --secondary: 0 0% 95%;
+    --secondary-foreground: 0 0% 0%;
 
-    --muted: 240 8% 20%;
-    --muted-foreground: 240 5% 65%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
 
-    --accent: 45 100% 51%;
-    --accent-foreground: 240 10% 8%;
+    --accent: 0 0% 10%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 60 9% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 240 8% 20%;
-    --input: 240 8% 20%;
-    --ring: 45 100% 51%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 0 0% 0%;
 
-    --radius: 0.75rem;
+    --radius: 0rem;
     
-    --gradient-hero: linear-gradient(135deg, hsl(240 10% 8%) 0%, hsl(262 83% 58% / 0.1) 100%);
-    --gradient-card: linear-gradient(180deg, hsl(240 8% 12%) 0%, hsl(240 8% 10%) 100%);
-    --glow-gold: 0 0 40px hsl(45 100% 51% / 0.3);
-    --glow-purple: 0 0 40px hsl(262 83% 58% / 0.2);
-    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --gradient-angular: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(0 0% 96%) 100%);
+    --shadow-sharp: 0 0 0 1px hsl(0 0% 0% / 0.1), 0 4px 12px hsl(0 0% 0% / 0.05);
+    --shadow-lift: 0 0 0 1px hsl(0 0% 0% / 0.1), 0 8px 24px hsl(0 0% 0% / 0.1);
+    --transition-snap: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 0 0% 98%;
 
@@ -62,8 +61,22 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 240 10% 8%;
-    --foreground: 60 9% 98%;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+  }
+}
+
+@layer utilities {
+  .clip-angular {
+    clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+  }
+  
+  .clip-angular-reverse {
+    clip-path: polygon(0% 0%, 90% 0%, 100% 100%, 10% 100%);
+  }
+  
+  .clip-corner {
+    clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%);
   }
 }
 
