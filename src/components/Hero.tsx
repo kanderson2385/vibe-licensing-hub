@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Music, Play } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
+import logo from "@/assets/logo.png";
 
 const Hero = () => {
   const scrollToSection = (id: string) => {
@@ -19,20 +20,18 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center">
-        <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full border border-primary/30 bg-card/50 backdrop-blur-sm">
+        <div className="inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full border border-primary/30 bg-card/50 backdrop-blur-sm">
           <Music className="w-4 h-4 text-primary" />
           <span className="text-sm font-medium text-primary">Premium Sync Licensing</span>
         </div>
 
-        <h1 className="text-6xl md:text-8xl font-bold mb-6 tracking-tight">
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-foreground via-primary to-secondary">
-            K3LVIN KAOS
-          </span>
-        </h1>
-        
-        <p className="text-xl md:text-2xl text-primary font-light mb-4 tracking-wider">
-          THE MELODIK ONE
-        </p>
+        <div className="mb-8 flex justify-center">
+          <img 
+            src={logo} 
+            alt="K3lvin Kaos - The Melodik One" 
+            className="h-32 md:h-48 w-auto drop-shadow-[0_0_40px_rgba(255,204,0,0.3)]"
+          />
+        </div>
 
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed">
           High-quality music production for film, TV, commercials, and media. 
