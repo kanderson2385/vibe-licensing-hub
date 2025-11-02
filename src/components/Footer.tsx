@@ -1,22 +1,40 @@
 import logo from "@/assets/logo.png";
 
 const Footer = () => {
+  const scrollToSection = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const navLinks = ["Home", "Catalog", "Shop", "Credits", "Contact"];
+
   return (
-    <footer className="border-t-2 border-foreground/10 py-12 px-4 bg-background">
+    <footer className="border-t py-12 px-4 bg-muted/30">
       <div className="container mx-auto max-w-6xl">
         <div className="flex flex-col items-center gap-6">
           <img 
             src={logo} 
             alt="K3lvin Kaos" 
-            className="h-16 w-auto opacity-80"
+            className="h-12 w-auto opacity-80"
           />
           
+          <nav className="flex flex-wrap justify-center gap-6">
+            {navLinks.map((link) => (
+              <button
+                key={link}
+                onClick={() => scrollToSection(link.toLowerCase())}
+                className="text-sm text-muted-foreground hover:text-accent transition-colors"
+              >
+                {link}
+              </button>
+            ))}
+          </nav>
+          
           <div className="text-center">
-            <p className="text-sm font-bold tracking-wider mb-1">
-              © 2025 K3LVIN KAOS MUSIC
+            <p className="text-sm font-semibold mb-1">
+              © 2025 K3lvin Kaos
             </p>
-            <p className="text-xs text-muted-foreground font-light tracking-wide">
-              All Rights Reserved • Sync Licensing Specialist
+            <p className="text-xs text-muted-foreground">
+              Producer & Composer • These tracks hit different.
             </p>
           </div>
         </div>

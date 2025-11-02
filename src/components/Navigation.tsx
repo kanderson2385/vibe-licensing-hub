@@ -1,16 +1,29 @@
 import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+      
+      // Update active section based on scroll position
+      const sections = ["home", "about", "catalog", "shop", "credits", "contact"];
+      const current = sections.find(section => {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          return rect.top <= 100 && rect.bottom >= 100;
+        }
+        return false;
+      });
+      if (current) setActiveSection(current);
     };
+    
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -21,10 +34,12 @@ const Navigation = () => {
   };
 
   const navItems = [
-    { label: "HOME", id: "home" },
-    { label: "DEMOS", id: "demos" },
-    { label: "SERVICES", id: "services" },
-    { label: "CONTACT", id: "contact" },
+    { label: "Home", id: "home" },
+    { label: "About", id: "about" },
+    { label: "Catalog", id: "catalog" },
+    { label: "Shop", id: "shop" },
+    { label: "Credits", id: "credits" },
+    { label: "Contact", id: "contact" },
   ];
 
   return (
@@ -32,13 +47,12 @@ const Navigation = () => {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-background/95 backdrop-blur-sm border-b-2 border-foreground shadow-[var(--shadow-sharp)]"
-            : "bg-transparent"
+            ? "bg-background/95 backdrop-blur-md shadow-[var(--shadow-elegant)] border-b"
+            : "bg-background/80 backdrop-blur-sm"
         }`}
       >
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
-            {/* Logo */}
             <button
               onClick={() => scrollToSection("home")}
               className="hover:opacity-70 transition-opacity"
@@ -46,7 +60,7 @@ const Navigation = () => {
               <img 
                 src={logo} 
                 alt="K3lvin Kaos" 
-                className="h-12 w-auto"
+                className="h-10 w-auto"
               />
             </button>
 
@@ -56,7 +70,11 @@ const Navigation = () => {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="text-sm font-bold text-foreground hover:text-foreground/60 transition-colors tracking-wider"
+                  className={`text-sm font-semibold transition-colors ${
+                    activeSection === item.id
+                      ? "text-accent"
+                      : "text-foreground hover:text-accent"
+                  }`}
                 >
                   {item.label}
                 </button>
@@ -65,7 +83,7 @@ const Navigation = () => {
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden text-foreground hover:text-foreground/60 transition-colors"
+              className="md:hidden text-foreground hover:text-accent transition-colors"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -82,7 +100,11 @@ const Navigation = () => {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="text-2xl font-bold text-foreground hover:text-foreground/60 transition-colors tracking-wider"
+                className={`text-2xl font-bold transition-colors ${
+                  activeSection === item.id
+                    ? "text-accent"
+                    : "text-foreground hover:text-accent"
+                }`}
               >
                 {item.label}
               </button>

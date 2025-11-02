@@ -22,25 +22,13 @@ const Contact = () => {
   return (
     <section id="contact" className="py-24 px-4 bg-muted/30">
       <div className="container mx-auto max-w-4xl">
-        {/* Section Header */}
-        <div className="mb-16 text-center">
-          <div className="inline-block mb-4 relative">
-            <div className="absolute inset-0 bg-foreground/5 clip-angular" />
-            <h2 className="relative text-4xl md:text-5xl lg:text-6xl font-bold tracking-wider px-12 py-4">
-              GET IN TOUCH
-            </h2>
-          </div>
-          <div className="w-24 h-1 bg-foreground mx-auto mb-6" />
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-light">
-            Ready to license music for your project? Let's discuss how my productions can elevate your content.
-          </p>
-        </div>
-
-        <Card className="bg-background border-2 border-foreground/10 p-8 md:p-12 shadow-[var(--shadow-sharp)] clip-corner">
+        <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">Contact</h2>
+        
+        <Card className="p-8 md:p-12 shadow-[var(--shadow-elegant)]">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-bold mb-2 tracking-wide uppercase">
+                <label htmlFor="name" className="block text-sm font-semibold mb-2">
                   Name
                 </label>
                 <Input
@@ -49,12 +37,11 @@ const Contact = () => {
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   required
-                  className="bg-muted/50 border-2 border-foreground/10 focus:border-foreground font-light rounded-none h-12"
                 />
               </div>
               
               <div>
-                <label htmlFor="email" className="block text-sm font-bold mb-2 tracking-wide uppercase">
+                <label htmlFor="email" className="block text-sm font-semibold mb-2">
                   Email
                 </label>
                 <Input
@@ -64,41 +51,46 @@ const Contact = () => {
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   required
-                  className="bg-muted/50 border-2 border-foreground/10 focus:border-foreground font-light rounded-none h-12"
                 />
               </div>
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-sm font-bold mb-2 tracking-wide uppercase">
-                Project Details
+              <label htmlFor="message" className="block text-sm font-semibold mb-2">
+                Message
               </label>
               <Textarea
                 id="message"
-                placeholder="Tell me about your project, timeline, budget, and licensing requirements..."
-                rows={8}
+                placeholder="Tell me about your project..."
+                rows={6}
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 required
-                className="bg-muted/50 border-2 border-foreground/10 focus:border-foreground resize-none font-light rounded-none"
               />
             </div>
 
             <Button
               type="submit"
               size="lg"
-              className="w-full bg-foreground hover:bg-foreground/90 text-background font-bold py-7 tracking-wider clip-corner shadow-[var(--shadow-sharp)] hover:shadow-[var(--shadow-lift)] transition-all"
+              className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold"
             >
               <Mail className="mr-2 h-5 w-5" />
-              SEND MESSAGE
+              Send Message
             </Button>
           </form>
 
-          {/* Social Links */}
-          <div className="mt-12 pt-8 border-t-2 border-foreground/10">
-            <p className="text-center text-sm font-bold tracking-wider mb-6 uppercase">
-              Connect
+          <div className="mt-12 pt-8 border-t">
+            <p className="text-center text-sm font-semibold mb-6">
+              Or reach out directly
             </p>
+            <div className="text-center mb-6">
+              <a 
+                href="mailto:contact@mydomain.com" 
+                className="text-accent hover:underline font-medium"
+              >
+                contact@mydomain.com
+              </a>
+            </div>
             <div className="flex justify-center gap-4">
               {[
                 { icon: Instagram, url: "https://instagram.com" },
@@ -111,7 +103,6 @@ const Contact = () => {
                     key={index}
                     variant="outline"
                     size="icon"
-                    className="border-2 border-foreground/10 hover:border-foreground hover:bg-foreground hover:text-background transition-all clip-corner w-12 h-12"
                     asChild
                   >
                     <a href={social.url} target="_blank" rel="noopener noreferrer">

@@ -1,85 +1,104 @@
 import { Button } from "@/components/ui/button";
-import { Play, ChevronDown } from "lucide-react";
+import { ExternalLink } from "lucide-react";
+import heroPhoto from "@/assets/hero-photo.jpg";
 import logo from "@/assets/logo.png";
 
 const Hero = () => {
-  const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-  };
+  const brands = [
+    "MGM Studios",
+    "Netflix",
+    "Showtime",
+    "Discovery",
+    "CBS",
+    "ABC",
+    "NBC",
+    "ESPN"
+  ];
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
-      {/* Geometric Background Pattern */}
-      <div className="absolute inset-0 opacity-[0.03]">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `repeating-linear-gradient(45deg, black 0, black 2px, transparent 0, transparent 50%), repeating-linear-gradient(-45deg, black 0, black 2px, transparent 0, transparent 50%)`,
-          backgroundSize: '40px 40px'
-        }} />
-      </div>
-
-      {/* Angular Accent Lines */}
-      <div className="absolute top-0 left-0 w-full h-2 bg-foreground transform -skew-y-1" />
-      <div className="absolute bottom-0 right-0 w-full h-2 bg-foreground transform skew-y-1" />
-
-      {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 py-20">
-        <div className="max-w-5xl mx-auto text-center">
-          {/* Logo - Hero Element */}
-          <div className="mb-12 flex justify-center">
+    <section id="home" className="min-h-screen flex items-center justify-center py-20 px-4">
+      <div className="container mx-auto max-w-7xl">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Photo */}
+          <div className="order-2 lg:order-1">
             <div className="relative">
-              <div className="absolute inset-0 bg-foreground/5 blur-3xl" />
-              <img 
-                src={logo} 
-                alt="K3lvin Kaos - The Melodik One" 
-                className="relative h-48 md:h-64 lg:h-80 w-auto mx-auto"
+              <div className="absolute inset-0 bg-accent/10 rounded-lg transform translate-x-4 translate-y-4" />
+              <img
+                src={heroPhoto}
+                alt="K3lvin Kaos - Music Producer & Composer"
+                className="relative w-full rounded-lg shadow-[var(--shadow-bold)] object-cover aspect-[4/5]"
               />
             </div>
           </div>
 
-          {/* Tagline */}
-          <div className="mb-8 inline-block relative">
-            <div className="absolute -inset-4 bg-foreground/5 clip-corner" />
-            <h1 className="relative text-2xl md:text-3xl font-bold tracking-[0.3em] uppercase px-8 py-3">
-              Sync Licensing Specialist
+          {/* Content */}
+          <div className="order-1 lg:order-2 text-center lg:text-left">
+            <img src={logo} alt="K3lvin Kaos" className="h-32 w-auto mb-6 mx-auto lg:mx-0" />
+            
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight">
+              Producer & Composer
             </h1>
-          </div>
+            
+            <p className="text-xl md:text-2xl text-muted-foreground mb-8 font-light">
+              These tracks hit different.
+            </p>
 
-          {/* Description */}
-          <p className="text-lg md:text-xl text-foreground/70 mb-12 max-w-2xl mx-auto leading-relaxed font-light">
-            Premium music production for film, television, advertising, and digital media.
-            <br />
-            <span className="font-medium">Hip Hop • R&B • Cinematic • Commercial</span>
-          </p>
+            {/* CTAs */}
+            <div className="flex flex-col sm:flex-row gap-4 mb-12 justify-center lg:justify-start">
+              <Button 
+                size="lg" 
+                className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold"
+                asChild
+              >
+                <a href="https://disco.ac/" target="_blank" rel="noopener noreferrer">
+                  <ExternalLink className="mr-2 h-5 w-5" />
+                  Listen to Catalog
+                </a>
+              </Button>
+              
+              <Button 
+                size="lg" 
+                variant="outline"
+                className="border-2 font-semibold"
+                asChild
+              >
+                <a href="https://www.imdb.com/" target="_blank" rel="noopener noreferrer">
+                  <ExternalLink className="mr-2 h-5 w-5" />
+                  View Credits
+                </a>
+              </Button>
+              
+              <Button 
+                size="lg" 
+                variant="secondary"
+                className="font-semibold"
+                onClick={() => document.getElementById('shop')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                Shop
+              </Button>
+            </div>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg" 
-              className="bg-foreground text-background hover:bg-foreground/90 font-bold px-10 py-7 text-base tracking-wide clip-corner group shadow-[var(--shadow-sharp)] hover:shadow-[var(--shadow-lift)] transition-all"
-              onClick={() => scrollToSection('demos')}
-            >
-              <Play className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
-              LISTEN TO DEMOS
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline"
-              className="border-2 border-foreground text-foreground hover:bg-foreground hover:text-background font-bold px-10 py-7 text-base tracking-wide clip-corner shadow-[var(--shadow-sharp)] hover:shadow-[var(--shadow-lift)] transition-all"
-              onClick={() => scrollToSection('contact')}
-            >
-              START A PROJECT
-            </Button>
+            {/* Brand Logos */}
+            <div className="border-t pt-8">
+              <p className="text-xs uppercase tracking-wider text-muted-foreground mb-4 font-semibold">
+                Trusted By
+              </p>
+              <div className="grid grid-cols-4 gap-4 md:gap-6">
+                {brands.map((brand) => (
+                  <div
+                    key={brand}
+                    className="flex items-center justify-center p-3 bg-muted/50 rounded text-center"
+                  >
+                    <span className="text-xs font-bold text-muted-foreground">
+                      {brand}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
-      {/* Scroll Indicator */}
-      <button 
-        onClick={() => scrollToSection('demos')}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer group"
-      >
-        <ChevronDown className="w-8 h-8 text-foreground/30 group-hover:text-foreground transition-colors" />
-      </button>
     </section>
   );
 };
