@@ -85,10 +85,10 @@ const Contact = () => {
             </p>
             <div className="text-center mb-6">
               <a 
-                href="mailto:contact@mydomain.com" 
+                href="mailto:info@k3lvinkaosmusic.com" 
                 className="text-accent hover:underline font-medium"
               >
-                contact@mydomain.com
+                info@k3lvinkaosmusic.com
               </a>
             </div>
             <div className="flex justify-center gap-4">

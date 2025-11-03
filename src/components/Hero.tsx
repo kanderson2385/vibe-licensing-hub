@@ -2,17 +2,25 @@ import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
 import heroPhoto from "@/assets/hero-photo.jpg";
 import logo from "@/assets/logo.png";
+import mgmLogo from "@/assets/brands/mgm.png";
+import netflixLogo from "@/assets/brands/netflix.png";
+import showtimeLogo from "@/assets/brands/showtime.png";
+import discoveryLogo from "@/assets/brands/discovery.png";
+import cbsLogo from "@/assets/brands/cbs.png";
+import abcLogo from "@/assets/brands/abc.png";
+import nbcLogo from "@/assets/brands/nbc.png";
+import espnLogo from "@/assets/brands/espn.png";
 
 const Hero = () => {
   const brands = [
-    "MGM Studios",
-    "Netflix",
-    "Showtime",
-    "Discovery",
-    "CBS",
-    "ABC",
-    "NBC",
-    "ESPN"
+    { name: "MGM Studios", logo: mgmLogo },
+    { name: "Netflix", logo: netflixLogo },
+    { name: "Showtime", logo: showtimeLogo },
+    { name: "Discovery", logo: discoveryLogo },
+    { name: "CBS", logo: cbsLogo },
+    { name: "ABC", logo: abcLogo },
+    { name: "NBC", logo: nbcLogo },
+    { name: "ESPN", logo: espnLogo }
   ];
 
   return (
@@ -33,7 +41,7 @@ const Hero = () => {
 
           {/* Content */}
           <div className="order-1 lg:order-2 text-center lg:text-left">
-            <img src={logo} alt="K3lvin Kaos" className="h-32 w-auto mb-6 mx-auto lg:mx-0" />
+            <img src={logo} alt="K3lvin Kaos" className="h-48 w-auto mb-6 mx-auto lg:mx-0" />
             
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight">
               Producer & Composer
@@ -86,12 +94,14 @@ const Hero = () => {
               <div className="grid grid-cols-4 gap-4 md:gap-6">
                 {brands.map((brand) => (
                   <div
-                    key={brand}
-                    className="flex items-center justify-center p-3 bg-muted/50 rounded text-center"
+                    key={brand.name}
+                    className="flex items-center justify-center p-3 bg-muted/50 rounded"
                   >
-                    <span className="text-xs font-bold text-muted-foreground">
-                      {brand}
-                    </span>
+                    <img 
+                      src={brand.logo} 
+                      alt={brand.name}
+                      className="w-full h-auto max-h-12 object-contain"
+                    />
                   </div>
                 ))}
               </div>
