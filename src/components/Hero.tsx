@@ -93,16 +93,20 @@ const Hero = () => {
               </p>
             <div className="grid grid-cols-4 gap-6 md:gap-8 items-center">
               {brands.map((brand) => {
-                const isLarger = brand.name === "Amazon MGM Studios" || brand.name === "Netflix";
+                const isBoosted =
+                  brand.name === "Netflix" ||
+                  brand.name === "MGM Studios" ||
+                  brand.name === "Amazon MGM Studios";
+
                 return (
                   <div
                     key={brand.name}
-                    className="flex items-center justify-center"
+                    className="relative flex items-center justify-center bg-transparent shadow-none border-0 outline-none ring-0 filter-none backdrop-blur-none opacity-100"
                   >
-                    <img 
-                      src={brand.logo} 
+                    <img
+                      src={brand.logo}
                       alt={brand.name}
-                      className={`w-full h-auto object-contain ${isLarger ? 'max-h-20 md:max-h-24' : 'max-h-16 md:max-h-20'}`}
+                      className={`block w-full h-auto max-h-16 md:max-h-20 object-contain ${isBoosted ? "scale-[1.08] md:scale-[1.1]" : ""}`}
                     />
                   </div>
                 );
