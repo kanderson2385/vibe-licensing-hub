@@ -91,8 +91,10 @@ const Hero = () => {
               <p className="text-xs uppercase tracking-wider text-muted-foreground mb-6 font-semibold">
                 Trusted By
               </p>
-              <div className="grid grid-cols-4 gap-6 md:gap-8 items-center">
-                {brands.map((brand) => (
+            <div className="grid grid-cols-4 gap-6 md:gap-8 items-center">
+              {brands.map((brand) => {
+                const isLarger = brand.name === "Amazon MGM Studios" || brand.name === "Netflix";
+                return (
                   <div
                     key={brand.name}
                     className="flex items-center justify-center"
@@ -100,11 +102,12 @@ const Hero = () => {
                     <img 
                       src={brand.logo} 
                       alt={brand.name}
-                      className="w-full h-auto max-h-16 md:max-h-20 object-contain"
+                      className={`w-full h-auto object-contain ${isLarger ? 'max-h-20 md:max-h-24' : 'max-h-16 md:max-h-20'}`}
                     />
                   </div>
-                ))}
-              </div>
+                );
+              })}
+            </div>
             </div>
           </div>
         </div>
