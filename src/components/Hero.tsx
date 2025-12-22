@@ -87,20 +87,20 @@ const Hero = () => {
             </div>
 
             {/* Brand Logos */}
-            <div className="border-t pt-8">
-              <p className="text-xs uppercase tracking-wider text-muted-foreground mb-4 font-semibold">
+            <div className="border-t border-border/50 pt-8">
+              <p className="text-xs uppercase tracking-wider text-muted-foreground mb-6 font-semibold">
                 Trusted By
               </p>
-              <div className="grid grid-cols-4 gap-4 md:gap-6">
+              <div className="grid grid-cols-4 gap-6 md:gap-8 items-center">
                 {brands.map((brand) => (
                   <div
                     key={brand.name}
-                    className="flex items-center justify-center p-3 bg-muted/50 rounded"
+                    className="flex items-center justify-center"
                   >
                     <img 
                       src={brand.logo} 
                       alt={brand.name}
-                      className="w-full h-auto max-h-12 object-contain"
+                      className="w-full h-auto max-h-16 md:max-h-20 object-contain"
                     />
                   </div>
                 ))}
