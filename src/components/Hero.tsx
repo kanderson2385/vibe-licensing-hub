@@ -47,9 +47,7 @@ const Hero = () => {
               Producer & Composer
             </h1>
             
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8 font-light">
-              These tracks hit different.
-            </p>
+
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4 mb-12 justify-center lg:justify-start">
