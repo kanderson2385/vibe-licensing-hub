@@ -56,7 +56,7 @@ const Hero = () => {
                 className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold"
                 asChild
               >
-                <a href="https://disco.ac/" target="_blank" rel="noopener noreferrer">
+                <a href="https://k3lvinkaosmusic.disco.ac/cat/532277120" target="_blank" rel="noopener noreferrer">
                   <ExternalLink className="mr-2 h-5 w-5" />
                   Listen to Catalog
                 </a>
