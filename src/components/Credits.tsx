@@ -27,7 +27,7 @@ const Credits = () => {
             className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold"
             asChild
           >
-            <a href="https://www.imdb.com/" target="_blank" rel="noopener noreferrer">
+            <a href="https://m.imdb.com/name/nm13329225/?ref_=ext_shr_lnk" target="_blank" rel="noopener noreferrer">
               <ExternalLink className="mr-2 h-5 w-5" />
               View Full Credits on IMDb
             </a>
