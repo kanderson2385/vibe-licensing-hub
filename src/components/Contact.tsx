@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Instagram, Linkedin, Youtube } from "lucide-react";
+import { Mail, Instagram, Linkedin } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 
