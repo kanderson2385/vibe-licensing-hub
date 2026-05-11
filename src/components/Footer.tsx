@@ -31,7 +31,7 @@ const Footer = () => {
           
           <div className="text-center">
             <p className="text-sm font-semibold mb-1">
-              © 2025 K3lvin Kaos
+              © 2026 K3lvin Kaos
             </p>
             <p className="text-xs text-muted-foreground">
               Producer & Composer • These tracks hit different.
