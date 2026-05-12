@@ -1,69 +1,90 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ShoppingBag, Music2 } from "lucide-react";
+import { Input } from "@/components/ui/input";
 
 const Shop = () => {
   const products = [
     {
-      category: "Merch",
-      title: "K3lvin Kaos T-Shirt",
-      description: "Premium cotton tee with exclusive logo design",
-      price: "$29.99",
-      link: "/shop"
+      category: "SERVICE",
+      title: "The Creators Stack",
+      description:
+        "I'll build you a professional music website using the same AI-powered tech stack I use — Lovable, GitHub, Netlify, and Cloudflare. Clean, fast, and yours for under $100/year to maintain.",
+      cta: "Book a Consult",
+      link: "#",
     },
     {
-      category: "Merch",
-      title: "Limited Edition Hoodie",
-      description: "Comfortable hoodie with embroidered branding",
-      price: "$59.99",
-      link: "/shop"
+      category: "DIGITAL PRODUCT",
+      title: "Sync Intelligence Report",
+      description:
+        "Data-driven insights on what's getting placed, what supervisors are looking for, and how to position your catalog for sync.",
+      cta: "Get the Report",
+      link: "#",
     },
     {
-      category: "Presets",
-      title: "Cinematic Hip-Hop Bank",
-      description: "100+ production-ready presets for epic tracks",
-      price: "$49.99",
-      link: "/shop"
+      category: "THIS WEEK",
+      title: "The Drop",
+      description:
+        "A new release every week — beats, sound packs, vinyl, and more. Check back often.",
+      cta: "Get It Now",
+      link: "#",
     },
-    {
-      category: "Presets",
-      title: "R&B Soul Pack",
-      description: "Smooth sounds and lush textures for R&B production",
-      price: "$39.99",
-      link: "/shop"
-    }
   ];
 
   return (
     <section id="shop" className="py-24 px-4 bg-muted/30">
       <div className="container mx-auto max-w-6xl">
         <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">Shop</h2>
-        
+
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* Featured premium teaser card */}
+          <Card className="overflow-hidden bg-foreground text-background border-foreground/20 shadow-[var(--shadow-elegant)] flex flex-col">
+            <div className="p-6 flex flex-col h-full">
+              <p className="text-xs font-semibold text-accent uppercase tracking-wider mb-3">
+                COMING SOON
+              </p>
+              <h3 className="text-2xl font-bold mb-3 leading-tight">
+                SoundOS: Run Your Sound Like A System
+              </h3>
+              <p className="text-sm text-background/70 mb-6 flex-grow">
+                A complete operating system for music creators — built for producers who think in systems.
+              </p>
+              <form
+                onSubmit={(e) => e.preventDefault()}
+                className="space-y-3 mt-auto"
+              >
+                <Input
+                  type="email"
+                  placeholder="Enter your email"
+                  className="bg-background/10 border-background/20 text-background placeholder:text-background/50 focus-visible:ring-accent"
+                />
+                <Button
+                  type="submit"
+                  className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
+                >
+                  Join the Waitlist
+                </Button>
+              </form>
+            </div>
+          </Card>
+
           {products.map((product, index) => (
-            <Card key={index} className="overflow-hidden hover:shadow-[var(--shadow-elegant)] transition-shadow">
-              <div className="aspect-square bg-gradient-to-br from-muted to-muted/50 flex items-center justify-center">
-                {product.category === "Merch" ? (
-                  <ShoppingBag className="w-16 h-16 text-muted-foreground" />
-                ) : (
-                  <Music2 className="w-16 h-16 text-muted-foreground" />
-                )}
-              </div>
-              
-              <div className="p-6">
-                <p className="text-xs font-semibold text-accent uppercase tracking-wider mb-2">
+            <Card
+              key={index}
+              className="overflow-hidden hover:shadow-[var(--shadow-elegant)] transition-shadow flex flex-col"
+            >
+              <div className="p-6 flex flex-col h-full">
+                <p className="text-xs font-semibold text-accent uppercase tracking-wider mb-3">
                   {product.category}
                 </p>
-                <h3 className="text-xl font-bold mb-2">{product.title}</h3>
-                <p className="text-sm text-muted-foreground mb-4">
+                <h3 className="text-2xl font-bold mb-3 leading-tight">
+                  {product.title}
+                </h3>
+                <p className="text-sm text-muted-foreground mb-6 flex-grow">
                   {product.description}
                 </p>
-                <div className="flex items-center justify-between">
-                  <span className="text-2xl font-bold">{product.price}</span>
-                  <Button size="sm" className="bg-accent hover:bg-accent/90" asChild>
-                    <a href={product.link}>Buy</a>
-                  </Button>
-                </div>
+                <Button className="w-full bg-accent hover:bg-accent/90 mt-auto" asChild>
+                  <a href={product.link}>{product.cta}</a>
+                </Button>
               </div>
             </Card>
           ))}
