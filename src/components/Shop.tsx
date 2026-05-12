@@ -8,7 +8,7 @@ const Shop = () => {
       category: "SERVICE",
       title: "The Creators Stack",
       description:
-        "I'll build you a professional music website using the same AI-powered tech stack I use — Lovable, GitHub, Netlify, and Cloudflare. Clean, fast, and yours for under $100/year to maintain.",
+        "I'll build you a professional music website using the same AI-powered tech stack I use — Lovable, Claude Code, GitHub, Netlify, and Cloudflare. Clean, fast, and yours for under $100/year to maintain.",
       cta: "Book a Consult",
       link: "#",
     },
@@ -16,7 +16,7 @@ const Shop = () => {
       category: "DIGITAL PRODUCT",
       title: "Sync Intelligence Report",
       description:
-        "Data-driven insights on what's getting placed, what supervisors are looking for, and how to position your catalog for sync.",
+        "Turn your placements into proof. A professionally designed data report that visualizes your sync credits, catalog strengths, and placement history. Built for music creators who want to pitch smarter.",
       cta: "Get the Report",
       link: "#",
     },
