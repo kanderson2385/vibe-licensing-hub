@@ -1,73 +1,103 @@
-# Welcome to your Lovable project
-
-## Project info
-
-**URL**: https://lovable.dev/projects/ff1d17a4-1eca-4a43-830f-cc240b40fc07
-
-## How can I edit this code?
-
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/ff1d17a4-1eca-4a43-830f-cc240b40fc07) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+# K3lvin Kaos — Music & Sync Licensing Portfolio
+ 
+> **Live site:** [k3lvinkaosmusic.com](https://k3lvinkaosmusic.com)
+ 
+A professional sync licensing and music portfolio site for **K3lvin Kaos** — producer, composer, and sync licensing specialist with 1,000+ placements on Netflix, ESPN, NBC, CBS, Showtime, Discovery, and more.
+ 
+---
+ 
+## 🛠 Tech Stack
+ 
+| Layer | Tool | Purpose |
+|---|---|---|
+| Site Builder | Lovable.dev + Claude Code | AI-assisted React development |
+| Frontend | React + Vite + Tailwind CSS | Component-based UI |
+| Version Control | GitHub | Code storage, history, rollback |
+| CI/CD | Netlify | Auto-deploys on every push |
+| DNS | Cloudflare | Traffic routing, DDoS protection |
+| Domain | Namecheap | Domain registration (~$12/yr) |
+| Email | Google Workspace | Professional email hosting |
+ 
+---
+ 
+## ⚙️ Deployment Pipeline
+ 
 ```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/ff1d17a4-1eca-4a43-830f-cc240b40fc07) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Lovable.dev (edit)
+      ↓
+GitHub (vibe-licensing-hub)
+      ↓
+Netlify (auto-deploy on push)
+      ↓
+Cloudflare (DNS routing)
+      ↓
+k3lvinkaosmusic.com (production)
+```
+ 
+Every edit made in Lovable automatically pushes to this repo. Netlify detects the change and deploys within 60 seconds. Zero manual deployment steps.
+ 
+---
+ 
+## 💰 Total Infrastructure Cost
+ 
+| Service | Cost |
+|---|---|
+| Domain (Namecheap) | ~$12/year |
+| Email (Google Workspace) | ~$72/year |
+| Hosting (Netlify) | $0 |
+| DNS (Cloudflare) | $0 |
+| **Total** | **~$84/year** |
+ 
+Migrated from Wix Business Plan ($496/year) — saving ~$412/year with a faster, cleaner, more professional stack.
+ 
+---
+ 
+## 🎯 Site Features
+ 
+- **Home** — Hero section with network placement logos (Netflix, ESPN, NBC, CBS, Showtime, Discovery, ABC)
+- **About** — Bio and specialties (Cinematic Hip-Hop, Epic Hip-Hop, R&B & Soul, Sports Promos)
+- **Catalog** — Links to full catalog via DISCO
+- **Shop** — Digital products and services:
+  - SoundOS: Run Your Sound Like A System *(Coming Soon)*
+  - The Creators Stack *(Done-for-you website build service)*
+  - Sync Intelligence Report *(Custom placement data dashboards)*
+  - The Drop *(Rotating weekly release)*
+- **Credits** — Placement history and IMDb credits
+- **Contact** — Sync licensing inquiry form
+---
+ 
+## 🏗 Architecture Notes
+ 
+This project follows a **separation of concerns** approach across every infrastructure layer — the same principle applied in zero-trust cloud security architecture:
+ 
+- **Namecheap** owns the domain registration
+- **Cloudflare** manages DNS routing and security
+- **Netlify** handles hosting and deployment
+- **GitHub** manages version control and history
+No single layer is a point of failure. If any one service has an issue, the others continue functioning independently.
+ 
+---
+ 
+## 🔄 How to Update the Site
+ 
+1. Open project in [Lovable.dev](https://lovable.dev)
+2. Make edits via natural language prompts
+3. Click **Publish to GitHub**
+4. Netlify auto-detects and redeploys (~60 seconds)
+5. Changes are live at k3lvinkaosmusic.com
+For direct code edits — press `.` in this repo to open the GitHub web editor, make changes, commit, and Netlify deploys automatically.
+ 
+---
+ 
+## 👤 About K3lvin Kaos
+ 
+Keith Anderson is a Cloud Security Engineer and music producer operating at the intersection of technology and creative media. By day he architects secure cloud environments for federal clients using AWS GovCloud, IAM pipelines, and GitLab CI/CD. By night he produces sync-ready music placed across major networks and streaming platforms.
+ 
+- 🌐 [k3lvinkaosmusic.com](https://k3lvinkaosmusic.com)
+- 📧 info@k3lvinkaosmusic.com
+- 💼 [LinkedIn](https://linkedin.com/in/kanderson2385)
+- 🐙 [GitHub](https://github.com/kanderson2385)
+---
+ 
+*"Music built like infrastructure."*
+ 
