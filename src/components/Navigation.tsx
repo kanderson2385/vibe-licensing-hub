@@ -1,19 +1,27 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Menu, X } from "lucide-react";
+import { useNavigate, useLocation } from "react-router-dom";
 import logo from "@/assets/logo.png";
+import { SECTIONS, sectionToPath, pathToSection } from "@/lib/sectionNav";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
+  const [activeSection, setActiveSection] = useState<string>("home");
+  const navigate = useNavigate();
+  const location = useLocation();
+  const isProgrammaticScroll = useRef(false);
+  const programmaticTimeout = useRef<number | null>(null);
+
+  useEffect(() => {
+    setActiveSection(pathToSection(location.pathname));
+  }, [location.pathname]);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
-      
-      // Update active section based on scroll position
-      const sections = ["home", "about", "catalog", "shop", "credits", "contact"];
-      const current = sections.find(section => {
+
+      const current = (SECTIONS as readonly string[]).find((section) => {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
@@ -21,16 +29,36 @@ const Navigation = () => {
         }
         return false;
       });
-      if (current) setActiveSection(current);
+      if (current && current !== activeSection) {
+        setActiveSection(current);
+        if (!isProgrammaticScroll.current) {
+          const newPath = sectionToPath(current);
+          if (newPath !== window.location.pathname) {
+            window.history.replaceState(null, "", newPath);
+          }
+        }
+      }
     };
-    
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
-  const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [activeSection]);
+
+  const handleNavClick = (id: string) => {
     setIsMobileMenuOpen(false);
+    isProgrammaticScroll.current = true;
+    if (programmaticTimeout.current) window.clearTimeout(programmaticTimeout.current);
+    programmaticTimeout.current = window.setTimeout(() => {
+      isProgrammaticScroll.current = false;
+    }, 1000);
+    const path = sectionToPath(id);
+    if (path !== window.location.pathname) {
+      navigate(path);
+    } else {
+      const el = document.getElementById(id);
+      if (id === "home") window.scrollTo({ top: 0, behavior: "smooth" });
+      else el?.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   const navItems = [
@@ -54,7 +82,7 @@ const Navigation = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
             <button
-              onClick={() => scrollToSection("home")}
+              onClick={() => handleNavClick("home")}
               className="hover:opacity-70 transition-opacity"
             >
               <img 
@@ -69,7 +97,7 @@ const Navigation = () => {
               {navItems.map((item) => (
                 <button
                   key={item.id}
-                  onClick={() => scrollToSection(item.id)}
+                  onClick={() => handleNavClick(item.id)}
                   className={`text-sm font-semibold transition-colors ${
                     activeSection === item.id
                       ? "text-accent"
@@ -99,7 +127,7 @@ const Navigation = () => {
             {navItems.map((item) => (
               <button
                 key={item.id}
-                onClick={() => scrollToSection(item.id)}
+                onClick={() => handleNavClick(item.id)}
                 className={`text-2xl font-bold transition-colors ${
                   activeSection === item.id
                     ? "text-accent"
