@@ -49,7 +49,10 @@ const Shop = () => {
                 A complete operating system for music creators — built for producers who think in systems.
               </p>
               <form
-                onSubmit={(e) => e.preventDefault()}
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  window.open("https://docs.google.com/forms/d/e/1FAIpQLSfo5qoNCFKdwIdpBtCrZi5VEHQp9dlPXnN-22Dqv0l-zm6OKA/viewform?usp=publish-editor", "_blank");
+                }}
                 className="space-y-3 mt-auto"
               >
                 <Input
