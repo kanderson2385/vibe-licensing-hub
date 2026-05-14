@@ -15,6 +15,7 @@ import nbcLogo from "@/assets/brands/nbc.png";
 import espnLogo from "@/assets/brands/espn.png";
 
 const Hero = () => {
+  const navigate = useNavigate();
   const brands = [
     { name: "MGM Studios", logo: mgmLogo },
     { name: "Netflix", logo: netflixLogo },
