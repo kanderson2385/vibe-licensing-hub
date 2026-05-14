@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Instagram, Linkedin } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import heroPhoto from "@/assets/hero-photo.jpg";
 import logo from "@/assets/logo.png";
 import threadsLogo from "@/assets/social/threads.png";
