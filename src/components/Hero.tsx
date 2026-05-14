@@ -120,7 +120,7 @@ const Hero = () => {
                 size="lg" 
                 variant="secondary"
                 className="font-semibold"
-                onClick={() => document.getElementById('shop')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => { window.history.pushState(null, '', '/shop'); window.dispatchEvent(new PopStateEvent('popstate')); }}
               >
                 Shop
               </Button>
