@@ -10,7 +10,7 @@ const Shop = () => {
       description:
         "I'll build you a professional music website using the same AI-powered tech stack I use — Lovable, Claude Code, GitHub, Netlify, and Cloudflare. Clean, fast, and yours for under $100/year to maintain.",
       cta: "Book a Consult",
-      link: "#",
+      link: "https://calendly.com/kaos4beats/30min",
     },
     {
       category: "DIGITAL PRODUCT",
@@ -18,7 +18,7 @@ const Shop = () => {
       description:
         "Turn your placements into proof. A professionally designed data report that visualizes your sync credits, catalog strengths, and placement history. Built for music creators who want to pitch smarter.",
       cta: "Get the Report",
-      link: "#",
+      link: "https://k3lvinkaos.gumroad.com/l/vpqobe",
     },
     {
       category: "THIS WEEK",
@@ -26,7 +26,7 @@ const Shop = () => {
       description:
         "A new release every week — beats, sound packs, vinyl, and more. Check back often.",
       cta: "Get It Now",
-      link: "#",
+      link: "https://k3lvinkaos.gumroad.com/l/jhmyds",
     },
   ];
 
@@ -49,7 +49,10 @@ const Shop = () => {
                 A complete operating system for music creators — built for producers who think in systems.
               </p>
               <form
-                onSubmit={(e) => e.preventDefault()}
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  window.open("https://docs.google.com/forms/d/e/1FAIpQLSfo5qoNCFKdwIdpBtCrZi5VEHQp9dlPXnN-22Dqv0l-zm6OKA/viewform?usp=publish-editor", "_blank");
+                }}
                 className="space-y-3 mt-auto"
               >
                 <Input
