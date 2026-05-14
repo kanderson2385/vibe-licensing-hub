@@ -1,8 +1,19 @@
+import { useNavigate } from "react-router-dom";
 import logo from "@/assets/logo.png";
+import { sectionToPath } from "@/lib/sectionNav";
 
 const Footer = () => {
-  const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  const navigate = useNavigate();
+
+  const handleNavClick = (id: string) => {
+    const path = sectionToPath(id);
+    if (path !== window.location.pathname) {
+      navigate(path);
+    } else if (id === "home") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   const navLinks = ["Home", "Catalog", "Shop", "Credits", "Contact"];
@@ -21,7 +32,7 @@ const Footer = () => {
             {navLinks.map((link) => (
               <button
                 key={link}
-                onClick={() => scrollToSection(link.toLowerCase())}
+                onClick={() => handleNavClick(link.toLowerCase())}
                 className="text-sm text-muted-foreground hover:text-accent transition-colors"
               >
                 {link}

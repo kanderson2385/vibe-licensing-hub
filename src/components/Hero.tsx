@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Instagram, Linkedin } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import heroPhoto from "@/assets/hero-photo.jpg";
 import logo from "@/assets/logo.png";
 import threadsLogo from "@/assets/social/threads.png";
@@ -14,6 +15,7 @@ import nbcLogo from "@/assets/brands/nbc.png";
 import espnLogo from "@/assets/brands/espn.png";
 
 const Hero = () => {
+  const navigate = useNavigate();
   const brands = [
     { name: "MGM Studios", logo: mgmLogo },
     { name: "Netflix", logo: netflixLogo },
@@ -120,7 +122,7 @@ const Hero = () => {
                 size="lg" 
                 variant="secondary"
                 className="font-semibold"
-                onClick={() => document.getElementById('shop')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => navigate('/shop')}
               >
                 Shop
               </Button>
