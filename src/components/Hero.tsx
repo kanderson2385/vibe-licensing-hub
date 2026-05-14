@@ -122,7 +122,7 @@ const Hero = () => {
                 size="lg" 
                 variant="secondary"
                 className="font-semibold"
-                onClick={() => { window.history.pushState(null, '', '/shop'); window.dispatchEvent(new PopStateEvent('popstate')); }}
+                onClick={() => navigate('/shop')}
               >
                 Shop
               </Button>
