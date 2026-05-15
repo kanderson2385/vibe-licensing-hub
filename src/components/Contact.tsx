@@ -21,7 +21,7 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      const response = await fetch("https://formspree.io/f/mqenvgojx", {
+      const response = await fetch("https://formspree.io/f/mqenvgoj", {
         method: "POST",
         headers: { Accept: "application/json" },
         body: new FormData(e.target as HTMLFormElement),
