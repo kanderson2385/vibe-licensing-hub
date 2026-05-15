@@ -16,7 +16,7 @@ const Catalog = () => {
           </h3>
           
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Access hundreds of production-ready tracks across multiple genres. Stream, download, and license music for your next project.
+            Access production-ready tracks across multiple genres. Stream, download, and license music for your next project.
           </p>
           
           <Button 
