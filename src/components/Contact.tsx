@@ -55,7 +55,7 @@ const Contact = () => {
           ) : (
           <form
             onSubmit={handleSubmit}
-            action="https://formspree.io/f/mqenvgojx"
+            action="https://formspree.io/f/mqenvgoj"
             method="POST"
             className="space-y-6"
           >
