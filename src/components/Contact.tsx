@@ -14,11 +14,29 @@ const Contact = () => {
     email: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Message sent successfully!");
-    setFormData({ name: "", email: "", message: "" });
+    setIsSubmitting(true);
+    try {
+      const response = await fetch("https://formspree.io/f/mqenvgojx", {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: new FormData(e.target as HTMLFormElement),
+      });
+      if (response.ok) {
+        setIsSubmitted(true);
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        toast.error("Something went wrong. Please try again.");
+      }
+    } catch {
+      toast.error("Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -27,7 +45,21 @@ const Contact = () => {
         <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">Contact</h2>
         
         <Card className="p-8 md:p-12 shadow-[var(--shadow-elegant)]">
-          <form onSubmit={handleSubmit} className="space-y-6">
+          {isSubmitted ? (
+            <div className="text-center py-12">
+              <h3 className="text-2xl font-bold mb-4">Thank You</h3>
+              <p className="text-lg text-muted-foreground">
+                Message received! I'll be in touch within 48 hours.
+              </p>
+            </div>
+          ) : (
+          <form
+            onSubmit={handleSubmit}
+            action="https://formspree.io/f/mqenvgojx"
+            method="POST"
+            className="space-y-6"
+          >
+            <input type="hidden" name="_replyto" value="info@k3lvinkaosmusic.com" />
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-semibold mb-2">
@@ -35,6 +67,7 @@ const Contact = () => {
                 </label>
                 <Input
                   id="name"
+                  name="name"
                   placeholder="Your name"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -48,6 +81,7 @@ const Contact = () => {
                 </label>
                 <Input
                   id="email"
+                  name="email"
                   type="email"
                   placeholder="your@email.com"
                   value={formData.email}
@@ -63,6 +97,7 @@ const Contact = () => {
               </label>
               <Textarea
                 id="message"
+                name="message"
                 placeholder="Tell me about your project..."
                 rows={6}
                 value={formData.message}
@@ -74,12 +109,14 @@ const Contact = () => {
             <Button
               type="submit"
               size="lg"
+              disabled={isSubmitting}
               className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold"
             >
               <Mail className="mr-2 h-5 w-5" />
-              Send Message
+              {isSubmitting ? "Sending..." : "Send Message"}
             </Button>
           </form>
+          )}
 
           <div className="mt-12 pt-8 border-t">
             <p className="text-center text-sm font-semibold mb-6">

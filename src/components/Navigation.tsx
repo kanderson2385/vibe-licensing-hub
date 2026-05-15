@@ -80,7 +80,7 @@ const Navigation = () => {
         }`}
       >
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center justify-between h-24">
             <button
               onClick={() => handleNavClick("home")}
               className="hover:opacity-70 transition-opacity"
@@ -88,7 +88,7 @@ const Navigation = () => {
               <img 
                 src={logo} 
                 alt="K3lvin Kaos" 
-                className="h-10 w-auto"
+                className="h-16 w-auto"
               />
             </button>
 
