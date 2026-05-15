@@ -21,7 +21,7 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      const response = await fetch("https://formspree.io/f/mqenvgojx", {
+      const response = await fetch("https://formspree.io/f/mqenvgoj", {
         method: "POST",
         headers: { Accept: "application/json" },
         body: new FormData(e.target as HTMLFormElement),
@@ -55,11 +55,13 @@ const Contact = () => {
           ) : (
           <form
             onSubmit={handleSubmit}
-            action="https://formspree.io/f/mqenvgojx"
+            action="https://formspree.io/f/mqenvgoj"
             method="POST"
             className="space-y-6"
           >
             <input type="hidden" name="_replyto" value="info@k3lvinkaosmusic.com" />
+            <input type="hidden" name="_next" value="https://k3lvinkaosmusic.com" />
+            <input type="hidden" name="_subject" value="New message from k3lvinkaosmusic.com" />
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-semibold mb-2">
