@@ -24,7 +24,7 @@ const Shop = () => {
       category: "THIS WEEK",
       title: "The Drop",
       description:
-        "A new release every week — beats, sound packs, vinyl, and more. Check back often.",
+        "A new release every week — beats, sound packs, vinyl, and more. Check back often.\n\nTHIS WEEK: The $84/Year Website Blueprint — the exact steps I used to cut my website costs from $496 to $84/year. Free this week only.",
       cta: "Get It Now",
       link: "https://k3lvinkaos.gumroad.com/l/jhmyds",
     },
