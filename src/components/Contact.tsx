@@ -60,6 +60,8 @@ const Contact = () => {
             className="space-y-6"
           >
             <input type="hidden" name="_replyto" value="info@k3lvinkaosmusic.com" />
+            <input type="hidden" name="_next" value="https://k3lvinkaosmusic.com" />
+            <input type="hidden" name="_subject" value="New message from k3lvinkaosmusic.com" />
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-semibold mb-2">
