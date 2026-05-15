@@ -24,7 +24,7 @@ const Shop = () => {
       category: "THIS WEEK",
       title: "The Drop",
       description:
-        "A new release every week — beats, sound packs, vinyl, and more. Check back often.",
+        "A new release every week — beats, sound packs, vinyl, and more. Check back often.\n\nTHIS WEEK: The $84/Year Website Blueprint — the exact steps I used to cut my website costs from $496 to $84/year. Free this week only.",
       cta: "Get It Now",
       link: "https://k3lvinkaos.gumroad.com/l/jhmyds",
     },
@@ -82,9 +82,11 @@ const Shop = () => {
                 <h3 className="text-2xl font-bold mb-3 leading-tight">
                   {product.title}
                 </h3>
-                <p className="text-sm text-muted-foreground mb-6 flex-grow">
-                  {product.description}
-                </p>
+                <div className="text-sm text-muted-foreground mb-6 flex-grow space-y-3">
+                  {product.description.split("\n\n").map((paragraph, i) => (
+                    <p key={i}>{paragraph}</p>
+                  ))}
+                </div>
                 <Button className="w-full bg-accent hover:bg-accent/90 mt-auto" asChild>
                   <a href={product.link}>{product.cta}</a>
                 </Button>
