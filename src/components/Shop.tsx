@@ -46,7 +46,7 @@ const Shop = () => {
                 SessionOS: Run Your Sound Like A System
               </h3>
               <p className="text-sm text-background/70 mb-6 flex-grow">
-                A complete operating system for music creators — built for producers who think in systems.
+                A complete operating system for music creators — built for producers, artists, and engineers. SessionOS.io coming soon!
               </p>
               <form
                 onSubmit={(e) => {
