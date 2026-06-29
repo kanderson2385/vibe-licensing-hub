@@ -43,7 +43,7 @@ const Shop = () => {
                 COMING SOON
               </p>
               <h3 className="text-2xl font-bold mb-3 leading-tight">
-                SoundOS: Run Your Sound Like A System
+                SessionOS: Run Your Sound Like A System
               </h3>
               <p className="text-sm text-background/70 mb-6 flex-grow">
                 A complete operating system for music creators — built for producers who think in systems.
